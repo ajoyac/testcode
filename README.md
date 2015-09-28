@@ -10,6 +10,10 @@ check commands:
 	test N	 run especific N test case
 
 folders that you will find
+
 input: input that your code will be waiting to recieve, fixed to prefixx in
+
 output: ouput that your code expects to be get out, fixed to prefixx out
+
 result: real ouput of your program, fixxed to preffix r
+
