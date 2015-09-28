@@ -1,0 +1,29 @@
+#!/usr/bin/python
+
+import sys
+import os
+from subprocess import call
+if len(sys.argv)<2:
+	print "check commands:" 
+	print "\tstate\t show the statement" 
+	print "\teditor\t open vi editor from main file"
+	print "\tbuild\t compile code(currently only working at c" 
+	print "\ttest\t run all case units" 
+	print "\ttest N\t run especific N test case"
+if len(sys.argv)>1:
+	if sys.argv[1]=="state":
+		call(["xdg-open", "statement.html"])
+	elif sys.argv[1]=="editor":
+		call(["vi", "main.c"])
+	elif sys.argv[1]=="build":
+		call(["gcc","-o","test","main.c"])
+	elif sys.argv[1]=="test":
+		if len(sys.argv)==3:
+			if os.path.exists("input/in"+sys.argv[2]):
+				call(["./testcode",str(sys.argv[2])])
+		else:
+			listdir=os.listdir("input")
+			listdir.sort()
+			for name in listdir:
+				call(["./testcode",name[2:]])
+

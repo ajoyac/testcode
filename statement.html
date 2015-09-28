@@ -1,0 +1,67 @@
+<div class="cross-statementBlock"><div class="squareTitle"><h2 translate="" class="ng-scope">Statement</h2></div><div class="statement ng-binding" ng-class="{'clash': generic.clash &amp;&amp; generic.clash.mode === 'REVERSE'}" ng-bind-html="statement"><div style="font-family: Helvetiva, Arial, sans-serif; font-size:13px;"><em>MIME types</em>&nbsp;are used in numerous internet protocols to associate a media type (html, image, video ...) with the content sent. The <em>MIME type</em> is generally inferred from the extension of the file to be sent.<br>
+You have to write a program that makes it possible to detect the MIME type of a file based on its name.<br>
+&nbsp;
+<div style="text-align: center;"><img src="as400.jpg"></div>
+
+<div>&nbsp;</div>
+You are provided with a table which associates <em>MIME types</em> to file extensions. You are also given a list of names of files to be transferred and for each one of these files, you must find the <em>MIME type</em> to be used.<br>
+<br>
+The extension of a file is defined as the substring which follows the last occurrence, if any, of the dot character within the file name.<br>
+If the extension for a given file can be found in the association table (case insensitive, e.g. TXT is treated the same way as txt), then print the corresponding <em>MIME type</em>. If it is not possible to find the <em>MIME type</em> corresponding to a file, or if the file doesn’t have an extension, print&nbsp;<code>UNKNOWN</code>.
+
+<div>&nbsp;
+<div><b>INPUT:</b></div>
+
+<div><b>Line 1</b>: Number <span style="font-family: monospace; "><b>N</b></span> of elements which make up the association table.</div>
+
+<div><b>Line 2</b>: Number <span style="font-family: monospace"><b>Q</b></span> of file names to be analyzed.<br>
+<b>N following lines</b> : One file extension per line and the corresponding <i>MIME type</i> (separated by a blank space).<br>
+<b>Q following lines</b> : One file name per line.</div>
+&nbsp;
+
+<div><b>OUTPUT:</b></div>
+
+<div>For each of the <span style="font-family: monospace"><b>Q</b></span>&nbsp;filenames, display on a line the corresponding <i>MIME type</i>. If there is no corresponding type, then display <span style="font-family: monospace">UNKNOWN</span>.</div>
+
+<div>&nbsp;</div>
+
+<div><b>CONSTRAINTS:</b></div>
+
+<div style="font-family: monospace">0 &lt; <b>N</b> &lt; 10000</div>
+
+<div style="font-family: monospace">0 &lt; <b>Q</b> &lt; 10000</div>
+
+<ul>
+	<li>File extensions are composed of a maximum of 10 alphanumerical ASCII characters.</li>
+	<li><i>MIME types</i> are composed of a maximum 50 alphanumerical and punctuation&nbsp;ASCII characters.</li>
+	<li>File names are composed of a maximum of 256 alphanumerical ASCII characters and dots (full stops).</li>
+	<li>There are no spaces in the file names, extensions or&nbsp;<i>MIME types</i>.</li>
+</ul>
+&nbsp;
+
+<div><b>EXAMPLE:</b></div>
+
+<div style="border: 1px solid black; width: 440px; background-color: #DDDDDD;">
+<div style="float: left; margin-left: 10px; padding-left: 10px; width: 200px; font-family: monospace;">
+<div><b>Input</b></div>
+2<br>
+4<br>
+html text/html<br>
+png image/png<br>
+test.html<br>
+noextension<br>
+portrait.png<br>
+doc.TXT</div>
+
+<div style="margin-left: 10px; float: left; padding-left: 5px; width: 200px; font-family: monospace;">
+<div><b>Output</b></div>
+text/html<br>
+UNKNOWN<br>
+image/png<br>
+UNKNOWN</div>
+
+<div style="clear: both;">&nbsp;</div>
+</div>
+</div>
+</div>
+<br><b>Download the files provided in the test script:</b><br>Simple example: <a style="color:#000; text-decoration:underline" href="/servlet/fileservlet?id=2122854673841" target="_blank">in.txt</a> <a style="color:#000; text-decoration:underline" href="/servlet/fileservlet?id=2122860894070" target="_blank">out.txt</a><br>Unknown MIME types: <a style="color:#000; text-decoration:underline" href="/servlet/fileservlet?id=2122897796840" target="_blank">in.txt</a> <a style="color:#000; text-decoration:underline" href="/servlet/fileservlet?id=2122904827711" target="_blank">out.txt</a><br>Correct division of the extension: <a style="color:#000; text-decoration:underline" href="/servlet/fileservlet?id=2122933707227" target="_blank">in.txt</a> <a style="color:#000; text-decoration:underline" href="/servlet/fileservlet?id=2122945284867" target="_blank">out.txt</a><br>Consideration of the case (upper or lower): <a style="color:#000; text-decoration:underline" href="/servlet/fileservlet?id=2122977807431" target="_blank">in.txt</a> <a style="color:#000; text-decoration:underline" href="/servlet/fileservlet?id=2122984823779" target="_blank">out.txt</a><br>Large dataset: <a style="color:#000; text-decoration:underline" href="/servlet/fileservlet?id=2123019330220" target="_blank">in.txt</a> <a style="color:#000; text-decoration:underline" href="/servlet/fileservlet?id=2123025244666" target="_blank">out.txt</a><br></div><!-- ngIf: generic.clash && generic.clash.mode === 'REVERSE' --></div>

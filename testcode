@@ -1,0 +1,6 @@
+#!/bin/bash
+cat "input/in${1}" | ./test  > "result/r${1}"
+diff "output/out${1}" "result/r${1}" 
+if [ $? -eq "0" ];then
+ echo "test ${1} correct."
+fi
