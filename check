@@ -1,22 +1,37 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 
+suffix={"python":".py","c":".c","c++":".cpp","bash":".sh"}
 import sys
 import os
 from subprocess import call
+
+filename = "main"
 if len(sys.argv)<2:
-	print "check commands:" 
-	print "\tstate\t show the statement" 
-	print "\teditor\t open vi editor from main file"
-	print "\tbuild\t compile code(currently only working at c" 
-	print "\ttest\t run all case units" 
-	print "\ttest N\t run especific N test case"
+	print ("check commands:" )
+	print ("\tstate\t show the statement" )
+	print ("\teditor\t open vi editor from main file")
+	print ("\tbuild\t compile code(currently only working at c and python3") 
+	print ("\ttest\t run all case units" )
+	print ("\ttest N\t run especific N test case")
 if len(sys.argv)>1:
 	if sys.argv[1]=="state":
 		call(["xdg-open", "statement.html"])
-	elif sys.argv[1]=="editor":
-		call(["vi", "main.c"])
+	elif sys.argv[1] == "editor":
+		if len(sys.argv) == 3:
+			filename += suffix.get(sys.argv[2],".c")
+			if ( filename.endswith(suffix.get("python")) and  
+			not os.path.exists(filename)):
+				with open(filename,"w") as f:
+				 f.write("#!/usr/bin/python3")
+		else:
+			filename += ".c"
+		call(["vi", filename])
 	elif sys.argv[1]=="build":
-		call(["gcc","-o","test","main.c"])
+		if  os.path.isfile(filename+suffix.get("c")):
+			call(["gcc","-o","test","main.c"])
+		elif os.path.isfile(filename+suffix.get("python")):
+			call(["cp","main.py","test"])
+			call(["sudo","chmod", "a+x","test"])
 	elif sys.argv[1]=="test":
 		if len(sys.argv)==3:
 			if os.path.exists("input/in"+sys.argv[2]):
